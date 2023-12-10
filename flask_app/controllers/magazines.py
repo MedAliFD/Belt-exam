@@ -42,9 +42,5 @@ def show_magazine(id):
 
 @app.route('/magazine/<int:id>/delete')
 def delete(id):
-    magazine = Magazine.get_by_id({'id': id})
-
-    if magazine.user.id == session['user_id']:
-
-        Magazine.delete({'id': id})
-    return redirect('/account')
+    Magazine.delete({'id': id})
+    return redirect('/user/account')
